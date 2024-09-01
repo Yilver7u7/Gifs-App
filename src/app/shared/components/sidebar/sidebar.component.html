@@ -2,9 +2,10 @@
 <h3 class="text-light">Gifs App</h3>
 <hr class="text-white">
 
-<div class="list-group list-reset">
+<div *ngFor=" let tag of tags;"
+class="list-group list-reset mx-2">
   <button class="list-group-item list-group-item-action">
-    Valorant
+    {{ tag | titlecase }}
   </button>
 </div>
 
