@@ -18,7 +18,7 @@ public tagInput!: ElementRef<HTMLInputElement>;
 
   tagSearch(): void {
     const newTag = this.tagInput.nativeElement.value;
-    console.log( {newTag} );
+    console.log( newTag );
     //Add the new Input to the list
     this.GifsServicesService.searchTag(newTag);
     // reset the input field
