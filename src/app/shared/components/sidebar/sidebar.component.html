@@ -4,7 +4,8 @@
 
 <div *ngFor=" let tag of tags;"
 class="list-group list-reset mx-2 my-1">
-  <button class="list-group-item list-group-item-action">
+  <button (click)="reSearchTad( tag)"
+  class="list-group-item list-group-item-action">
     {{ tag | titlecase }}
   </button>
 </div>
