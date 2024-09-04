@@ -8,12 +8,15 @@ import { Gif, SearchResponse } from '../interfaces/gifs.interfaces';
 export class GifsServices {
 
   public gifsList: Gif[] = [];
- 
+
   private _tagsHistory: string[] = [];
   apiKey:string = 'FgZpYuCHKARLYEFK2kmStaorkSViNnzP';
   private serviceURL:String = 'https://api.giphy.com/v1/gifs'
 
-  constructor( private http: HttpClient) { }
+  constructor( private http: HttpClient) {
+    this.loadLocalStorage();
+    console.log('GIfs Services Ready')
+   }
 
   public get tagsHistory(): string[]{
     return [...this._tagsHistory];
@@ -27,7 +30,24 @@ export class GifsServices {
     }
     this._tagsHistory.unshift(tag);
     this._tagsHistory.splice(10);
+    this.saveLocalStorage();
    }
+
+
+   private saveLocalStorage(): void{
+    localStorage.setItem('tagsHistory', JSON.stringify( this._tagsHistory ));
+   }
+
+   private loadLocalStorage(): void{
+    if(!localStorage.getItem('tagsHistory')) return;
+
+    this._tagsHistory = JSON.parse( localStorage.getItem('tagsHistory')! );
+
+    if(this._tagsHistory.length === 0) return;
+    this.searchTag(this._tagsHistory[0]);
+
+   }
+
 
   async searchTag( tag: string ):Promise<void>{
     if( tag.length === 0 )return
