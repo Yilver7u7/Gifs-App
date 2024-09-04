@@ -1,5 +1,5 @@
 import { Component,ElementRef, ViewChild } from '@angular/core';
-import { GifsServicesService } from '../../services/gifs.services.service';
+import { GifsServices } from '../../services/gifs.services.service';
 
 @Component({
   selector: 'gifs-search-box',
@@ -8,7 +8,7 @@ import { GifsServicesService } from '../../services/gifs.services.service';
 })
 export class SearchBoxComponent {
 
-  constructor( private GifsServicesService: GifsServicesService ) {
+  constructor( private GifsServicesService: GifsServices ) {
 
    }
 

@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { GifsServicesService } from '../../../gifs/services/gifs.services.service';
+import { GifsServices } from '../../../gifs/services/gifs.services.service';
 
 @Component({
   selector: 'shared-sidebar',
@@ -8,7 +8,7 @@ import { GifsServicesService } from '../../../gifs/services/gifs.services.servic
 })
 export class SidebarComponent {
 
-  constructor( private gifsService: GifsServicesService){
+  constructor( private gifsService: GifsServices){
 
   }
 
